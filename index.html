@@ -1,570 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empower Her Kenya</title>
-  <meta name="description" content="Empowering Kenyan girls and women through education, health access, and economic opportunities">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tujijenge Kenya - Empowering youth through free skills training, mental health awareness, and civic education">
+  <title>Tujijenge Kenya - Youth Empowerment Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
-    /* ===== GLOBAL STYLES ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --primary: #006400;
+      --secondary: #228B22;
+      --accent: #FFC72C;
+      --light: #f0f4f8;
+      --dark: #222;
     }
+    
     body {
-      background-color: #f9f9f9;
-      color: #333;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0; 
+      padding: 0;
+      background: var(--light);
+      color: var(--dark);
       line-height: 1.6;
     }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      background-color: #ff6b6b;
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    .btn:hover {
-      background-color: #e05555;
-      transform: translateY(-3px);
-    }
-    section {
-      padding: 80px 0;
-    }
-    .section-title {
+      padding: 30px 20px;
       text-align: center;
-      margin-bottom: 50px;
-      font-size: 36px;
       position: relative;
     }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: #ff6b6b;
-      margin: 15px auto;
-    }
     
-    /* ===== NAVIGATION ===== */
-    header {
-      background-color: #fff;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-    }
     .logo {
-      font-size: 24px;
-      font-weight: 700;
-    }
-    .logo span {
-      color: #ff6b6b;
-    }
-    .nav-links {
-      display: flex;
-      list-style: none;
-    }
-    .nav-links li {
-      margin-left: 30px;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover {
-      color: #ff6b6b;
-    }
-    .donate-btn {
-      background-color: #ff6b6b;
-      color: white !important;
-      padding: 8px 20px;
-      border-radius: 5px;
-    }
-    .donate-btn:hover {
-      background-color: #e05555;
-    }
-    .mobile-menu {
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      background: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: var(--primary);
+      font-weight: bold;
     }
     
-    /* ===== HERO SECTION ===== */
-    .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                  url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
-      background-size: cover;
-      background-position: center;
-      height: 80vh;
+    nav {
+      background: var(--secondary);
       display: flex;
-      align-items: center;
-      text-align: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
       color: white;
-    }
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
     }
     
-    /* ===== ABOUT SECTION ===== */
-    .about {
-      background-color: #fff;
+    nav a:hover, nav a:focus {
+      background: var(--accent);
+      color: var(--dark);
+      transform: translateY(-2px);
     }
-    .about-content {
+    
+    section {
+      padding: 40px 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    h2 {
+      color: var(--primary);
+      font-size: 28px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 50px;
-    }
-    .about-text {
-      flex: 1;
-    }
-    .about-image {
-      flex: 1;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-    .about-image img {
-      width: 100%;
-      height: auto;
-      display: block;
+      gap: 10px;
     }
     
-    /* ===== PROGRAMS SECTION ===== */
-    .programs {
-      background-color: #f5f5f5;
-    }
-    .program-cards {
+    .card-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      margin-top: 30px;
     }
-    .program-card {
+    
+    .card {
       background: white;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
-    .program-card:hover {
-      transform: translateY(-10px);
+    
+    .card:hover {
+      transform: translateY(-5px);
     }
-    .program-card img {
+    
+    .card-img {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .card-content {
+      padding: 20px;
+    }
+    
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    
+    iframe {
       width: 100%;
       height: 200px;
-      object-fit: cover;
-    }
-    .program-info {
-      padding: 25px;
-    }
-    .program-info h3 {
-      color: #ff6b6b;
-      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
     }
     
-    /* ===== IMPACT SECTION ===== */
-    .impact {
-      background-color: #ff6b6b;
-      color: white;
-      text-align: center;
-    }
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin-top: 50px;
-    }
-    .stat-box {
-      margin: 20px;
-    }
-    .stat-number {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 10px;
+    .testimonial {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     }
     
-    /* ===== TESTIMONIALS SECTION ===== */
-    .testimonials {
-      background-color: #fff;
-    }
-    .testimonial-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .testimonial-card {
-      background: #f9f9f9;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 20px;
-    }
     .testimonial-author {
-      font-weight: 600;
-      color: #ff6b6b;
+      font-weight: bold;
+      color: var(--secondary);
+      margin-top: 10px;
     }
     
-    /* ===== GALLERY SECTION ===== */
-    .gallery {
-      background-color: #f5f5f5;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .gallery-item {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      height: 250px;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.1);
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--dark);
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: all 0.3s ease;
     }
     
-    /* ===== CONTACT SECTION ===== */
-    .contact {
-      background-color: #fff;
+    .btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
     }
-    .contact-container {
-      display: flex;
-      gap: 50px;
-    }
-    .contact-info {
-      flex: 1;
-    }
-    .contact-info h3 {
-      margin-bottom: 20px;
-      color: #ff6b6b;
-    }
-    .contact-info p {
-      margin-bottom: 15px;
-    }
+    
     .contact-form {
-      flex: 1;
+      max-width: 600px;
+      margin: 0 auto;
     }
+    
     .form-group {
       margin-bottom: 20px;
     }
+    
     .form-group label {
       display: block;
       margin-bottom: 5px;
-      font-weight: 600;
+      font-weight: bold;
     }
+    
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 5px;
     }
-    .form-group textarea {
-      height: 150px;
+    
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
     }
     
-    /* ===== FOOTER ===== */
-    footer {
-      background-color: #333;
-      color: white;
-      padding: 60px 0 20px;
-    }
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      margin-bottom: 40px;
-    }
-    .footer-column {
-      flex: 1;
-      min-width: 250px;
-    }
-    .footer-column h3 {
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
-    .footer-column ul {
-      list-style: none;
-    }
-    .footer-column ul li {
-      margin-bottom: 10px;
-    }
-    .footer-column ul li a {
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .footer-column ul li a:hover {
-      color: white;
-    }
     .social-links {
-      display: flex;
-      gap: 15px;
+      margin: 20px 0;
     }
+    
     .social-links a {
       color: white;
-      font-size: 20px;
-    }
-    .copyright {
-      text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid #555;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: all 0.3s ease;
     }
     
-    /* ===== RESPONSIVE DESIGN ===== */
+    .social-links a:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
     @media (max-width: 768px) {
-      .mobile-menu {
-        display: block;
-      }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        background-color: white;
+      nav {
         flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        gap: 10px;
       }
-      .nav-links.active {
-        display: flex;
+      
+      section {
+        padding: 30px 15px;
       }
-      .nav-links li {
-        margin: 10px 0;
-      }
-      .hero h1 {
-        font-size: 36px;
-      }
-      .about-content {
-        flex-direction: column;
-      }
-      .contact-container {
-        flex-direction: column;
+      
+      h2 {
+        font-size: 24px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
+
   <header>
-    <div class="container">
-      <nav>
-        <div class="logo">Empower Her <span>Kenya</span></div>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#programs">Programs</a></li>
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#donate" class="donate-btn">Donate</a></li>
-        </ul>
-        <div class="mobile-menu" id="mobileMenu">
-          <i class="fas fa-bars"></i>
-        </div>
-      </nav>
-    </div>
+    <div class="logo">TK</div>
+    <h1>Tujijenge Kenya</h1>
+    <p>Empowering Youth through Free Skills, Mental Health & Civic Awareness</p>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Empowering Girls & Women in Kenya</h1>
-        <p>Breaking cycles of poverty through education, health access, and economic opportunities</p>
-        <a href="#about" class="btn">Learn More</a>
-      </div>
-    </div>
-  </section>
+  <nav>
+    <a href="#skills"><i class="fas fa-graduation-cap"></i> Skills</a>
+    <a href="#mental"><i class="fas fa-brain"></i> Mental Health</a>
+    <a href="#rights"><i class="fas fa-gavel"></i> Know Your Rights</a>
+    <a href="#stories"><i class="fas fa-users"></i> Success Stories</a>
+    <a href="#donate"><i class="fas fa-hand-holding-heart"></i> Donate</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
 
-  <!-- ===== ABOUT SECTION ===== -->
-  <section class="about" id="about">
-    <div class="container">
-      <h2 class="section-title">Our Story</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>Founded in 2015, Empower Her Kenya is a grassroots organization dedicated to creating sustainable change for girls and women in underserved communities across Kenya.</p>
-          <p>We believe that when you empower a woman, you empower an entire community. Our holistic approach addresses education gaps, health disparities, and economic barriers that keep women from reaching their full potential.</p>
-          <p>Through our various programs, we've reached over 5,000 women and girls, helping them break free from cycles of poverty and build brighter futures.</p>
-          <a href="#programs" class="btn">Our Programs</a>
-        </div>
-        <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80" alt="Kenyan women in community">
+  <section id="skills">
+    <h2><i class="fas fa-graduation-cap"></i> Learn Skills for Free</h2>
+    <p>Start building your future now with our free video tutorials and resources. Gain marketable skills to improve your employability.</p>
+    
+    <div class="card-container">
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Phone Repair</h3>
+          <p>Learn how to diagnose and fix common smartphone issues.</p>
+          <iframe src="https://www.youtube.com/embed/Di3WZBWz3Ac" title="Phone Repair Basics"></iframe>
+          <a href="#" class="btn">Start Learning</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== PROGRAMS SECTION ===== -->
-  <section class="programs" id="programs">
-    <div class="container">
-      <h2 class="section-title">Our Programs</h2>
-      <div class="program-cards">
-        <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" alt="Education program">
-          <div class="program-info">
-            <h3>Girls' Education Initiative</h3>
-            <p>Scholarships, school supplies, and mentorship to keep girls in school and help them excel academically.</p>
-            <a href="#" class="btn">Learn More</a>
-          </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Electrical Wiring</h3>
+          <p>Basic electrical installation and safety procedures.</p>
+          <iframe src="https://www.youtube.com/embed/gcB6ZSWwGzw" title="Electrical Wiring Tutorial"></iframe>
+          <a href="#" class="btn">Start Learning</a>
         </div>
-        <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Health program">
-          <div class="program-info">
-            <h3>Women's Health Access</h3>
-            <p>Reproductive health education, menstrual hygiene products, and access to healthcare services.</p>
-            <a href="#" class="btn">Learn More</a>
-          </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Plumbing Basics</h3>
+          <p>Essential plumbing skills for home maintenance.</p>
+          <iframe src="https://www.youtube.com/embed/t6ZuXh6DozA" title="Plumbing Basics for Beginners"></iframe>
+          <a href="#" class="btn">Start Learning</a>
         </div>
-        <div class="program-card">
-          <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Economic empowerment">
-          <div class="program-info">
-            <h3>Economic Empowerment</h3>
-            <p>Vocational training, business skills development, and microfinance opportunities for women.</p>
-            <a href="#" class="btn">Learn More</a>
-          </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Web Development</h3>
+          <p>Build websites from scratch with HTML, CSS and JavaScript.</p>
+          <iframe src="https://www.youtube.com/embed/nu_pCVPKzTk" title="Web Development Crash Course"></iframe>
+          <a href="#" class="btn">Start Learning</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== IMPACT SECTION ===== -->
-  <section class="impact" id="impact">
-    <div class="container">
-      <h2 class="section-title">Our Impact</h2>
-      <div class="stats">
-        <div class="stat-box">
-          <div class="stat-number">5,000+</div>
-          <p>Women & Girls Reached</p>
+  <section id="mental">
+    <h2><i class="fas fa-brain"></i> Mental Health Awareness</h2>
+    <p>Your mental health matters. Learn how to manage stress, depression, and anxiety — and where to get help when you need it.</p>
+    
+    <div class="card-container">
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1599458252573-56ae36120de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Understanding Depression</h3>
+          <ul>
+            <li>Recognizing symptoms in yourself and others</li>
+            <li>Healthy coping mechanisms</li>
+            <li>When to seek professional help</li>
+          </ul>
+          <a href="https://befrienderskenya.org/" target="_blank" class="btn">Get Help Now</a>
         </div>
-        <div class="stat-box">
-          <div class="stat-number">92%</div>
-          <p>School Retention Rate</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Managing Anxiety</h3>
+          <ul>
+            <li>Breathing techniques that work</li>
+            <li>Grounding exercises</li>
+            <li>Building resilience</li>
+          </ul>
+          <a href="#" class="btn">Learn Techniques</a>
         </div>
-        <div class="stat-box">
-          <div class="stat-number">150+</div>
-          <p>Women Entrepreneurs</p>
-        </div>
-        <div class="stat-box">
-          <div class="stat-number">12</div>
-          <p>Communities Served</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Youth Support Groups</h3>
+          <p>Join our weekly virtual support meetings:</p>
+          <ul>
+            <li>Every Tuesday & Thursday</li>
+            <li>7:00pm - 8:30pm EAT</li>
+            <li>Free and confidential</li>
+          </ul>
+          <a href="#contact" class="btn">Register Now</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS SECTION ===== -->
-  <section class="testimonials">
-    <div class="container">
-      <h2 class="section-title">Success Stories</h2>
-      <div class="testimonial-cards">
-        <div class="testimonial-card">
-          <p class="testimonial-text">"Before joining Empower Her Kenya, I had dropped out of school. Today, I'm back in class with dreams of becoming a doctor. This program gave me hope."</p>
-          <p class="testimonial-author">- Wanjiku, Age 17</p>
+  <section id="rights">
+    <h2><i class="fas fa-gavel"></i> Know Your Rights</h2>
+    <p>Every youth in Kenya deserves to understand their rights and role in building a better country.</p>
+    
+    <div class="card-container">
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Constitutional Rights</h3>
+          <ul>
+            <li>Your rights under the 2010 Constitution</li>
+            <li>Freedom of expression and assembly</li>
+            <li>Right to education and healthcare</li>
+          </ul>
+          <a href="https://www.knchr.org/" target="_blank" class="btn">Learn More</a>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text">"The business training helped me start my own tailoring shop. I can now support my family and even employ two other women in my community."</p>
-          <p class="testimonial-author">- Amina, Small Business Owner</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1584735422186-bd9a27275e0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Legal Protection</h3>
+          <ul>
+            <li>What to do if arrested</li>
+            <li>How to file complaints against police</li>
+            <li>Free legal aid services</li>
+          </ul>
+          <a href="#" class="btn">Know Your Rights</a>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text">"As a mother, the health education sessions have been life-changing. I can now make informed decisions for myself and my daughters."</p>
-          <p class="testimonial-author">- Mumbi, Community Health Advocate</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Civic Engagement</h3>
+          <ul>
+            <li>How to register to vote</li>
+            <li>Understanding devolution</li>
+            <li>Participating in community development</li>
+          </ul>
+          <a href="#" class="btn">Get Involved</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== GALLERY SECTION ===== -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <h2 class="section-title">Gallery</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1593113598332-cd028d4d281a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Classroom session">
+  <section id="stories">
+    <h2><i class="fas fa-users"></i> Success Stories</h2>
+    <p>Hear from young Kenyans whose lives have been transformed through our programs.</p>
+    
+    <div class="testimonial">
+      <p>"After learning phone repair through Tujijenge, I started a small business in my neighborhood. I now earn enough to support my family and even employ two assistants."</p>
+      <div class="testimonial-author">- James M., Nairobi</div>
+    </div>
+    
+    <div class="testimonial">
+      <p>"The mental health support group saved my life. I didn't know others were going through similar struggles. Now I'm back in school and mentoring others."</p>
+      <div class="testimonial-author">- Wanjiru K., Nakuru</div>
+    </div>
+    
+    <div class="testimonial">
+      <p>"Knowing my rights helped me stand up against workplace discrimination. I got my job back with full compensation thanks to the legal guidance I received."</p>
+      <div class="testimonial-author">- Ahmed S., Mombasa</div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="#" class="btn">Share Your Story</a>
+    </div>
+  </section>
+
+  <section id="donate">
+    <h2><i class="fas fa-hand-holding-heart"></i> Support Our Mission</h2>
+    <p>Your donations help us keep this platform 100% free for all youth in Kenya. Help us offer more courses, mentorship, and mental health resources.</p>
+    
+    <div class="card-container">
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>M-Pesa Donations</h3>
+          <p>Send your contribution via M-Pesa:</p>
+          <ul>
+            <li>Paybill: 123456</li>
+            <li>Account: Tujijenge</li>
+          </ul>
+          <a href="#" class="btn">Donate Now</a>
         </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Women in training">
+      </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1604594849809-dfedbc827105?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>International Donations</h3>
+          <p>Support from anywhere in the world:</p>
+          <ul>
+            <li>PayPal: donate@tujijenge.org</li>
+            <li>Bank transfers available</li>
+          </ul>
+          <a href="https://paypal.me/tujijengekenya" target="_blank" class="btn">Donate via PayPal</a>
         </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80" alt="Community meeting">
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Health workshop">
+      </div>
+      
+      <div class="card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="card-content">
+          <h3>Become a Partner</h3>
+          <p>Organizations can support through:</p>
+          <ul>
+            <li>Sponsoring programs</li>
+            <li>Providing equipment</li>
+            <li>Offering internships</li>
+          </ul>
+          <a href="#contact" class="btn">Partner With Us</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTACT SECTION ===== -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2 class="section-title">Get Involved</h2>
-      <div class="contact-container">
-        <div class="contact-info">
-          <h3>Contact Us</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
-          <p><i class="fas fa-phone"></i> +254 700 123456</p>
-          <p><i class="fas fa-envelope"></i> info@empowerherkenya.org</p>
+  <section id="contact">
+    <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+    
+    <div class="card-container">
+      <div class="card">
+        <div class="card-content">
+          <h3>Get In Touch</h3>
+          <p>Have questions or want to get involved? Reach out to us through any of these channels:</p>
+          <ul>
+            <li><i class="fas fa-phone"></i> +254 700 123456</li>
+            <li><i class="fas fa-envelope"></i> info@tujijenge.org</li>
+            <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+          </ul>
+          
           <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
-        <div class="contact-form">
-          <form id="contactForm">
+      </div>
+      
+      <div class="card">
+        <div class="card-content">
+          <h3>Send Us a Message</h3>
+          <form class="contact-form">
             <div class="form-group">
-              <label for="name">Name</label>
+              <label for="name">Your Name</label>
               <input type="text" id="name" required>
             </div>
+            
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" id="email" required>
             </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject">
+                <option value="general">General Inquiry</option>
+                <option value="support">Mental Health Support</option>
+                <option value="volunteer">Volunteering</option>
+                <option value="donation">Donation Question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" required></textarea>
+              <textarea id="message" rows="5" required></textarea>
             </div>
+            
             <button type="submit" class="btn">Send Message</button>
           </form>
         </div>
@@ -572,68 +512,21 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Empower Her Kenya</h3>
-          <p>Creating sustainable change for girls and women through education, health access, and economic opportunities.</p>
-        </div>
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#impact">Impact</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Get Involved</h3>
-          <ul>
-            <li><a href="#donate">Donate</a></li>
-            <li><a href="#volunteer">Volunteer</a></li>
-            <li><a href="#partner">Partner With Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>&copy; 2024 Empower Her Kenya. All rights reserved.</p>
-      </div>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
+    
+    <p>&copy; 2025 Tujijenge Kenya. Powered by youth for youth. All rights reserved.</p>
+    
+    <p>
+      <a href="#" style="color: var(--accent);">Privacy Policy</a> | 
+      <a href="#" style="color: var(--accent);">Terms of Service</a>
+    </p>
   </footer>
 
-  <script>
-    // Mobile menu toggle
-    const mobileMenu = document.getElementById('mobileMenu');
-    const navLinks = document.getElementById('navLinks');
-    
-    mobileMenu.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-        
-        // Close mobile menu if open
-        navLinks.classList.remove('active');
-      });
-    });
-    
-    // Form submission
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for your message! We will get back to you soon.');
-      this.reset();
-    });
-  </script>
 </body>
 </html>
