@@ -6,6 +6,7 @@
   <meta name="description" content="Tujijenge Kenya - Empowering youth through free skills training, mental health awareness, and civic education">
   <title>Tujijenge Kenya - Youth Empowerment Platform</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     :root {
@@ -25,12 +26,41 @@
       line-height: 1.6;
     }
     
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
+    /* Hero Section with Rotating Images */
+    .hero {
       position: relative;
+      height: 70vh;
+      min-height: 400px;
+      overflow: hidden;
+    }
+    
+    .hero-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+    
+    .hero-slide.active {
+      opacity: 1;
+    }
+    
+    .hero-content {
+      background: rgba(0, 100, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 20px;
+      animation: fadeInUp 1s ease-out;
     }
     
     .logo {
@@ -45,6 +75,7 @@
       font-size: 40px;
       color: var(--primary);
       font-weight: bold;
+      animation: bounceIn 1s;
     }
     
     nav {
@@ -54,6 +85,10 @@
       gap: 20px;
       padding: 15px;
       flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     
     nav a {
@@ -63,18 +98,28 @@
       padding: 5px 10px;
       border-radius: 5px;
       transition: all 0.3s ease;
+      transform: translateY(0);
     }
     
     nav a:hover, nav a:focus {
       background: var(--accent);
       color: var(--dark);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
     
     section {
       padding: 40px 30px;
       max-width: 1200px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     
     h2 {
@@ -98,17 +143,26 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      transition: all 0.4s ease;
+      transform: scale(1);
+      opacity: 0.9;
     }
     
     .card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.03);
+      opacity: 1;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
     
     .card-img {
       height: 180px;
       background-size: cover;
       background-position: center;
+      transition: transform 0.5s ease;
+    }
+    
+    .card:hover .card-img {
+      transform: scale(1.05);
     }
     
     .card-content {
@@ -118,6 +172,11 @@
     .card h3 {
       margin-top: 0;
       color: var(--primary);
+      transition: color 0.3s ease;
+    }
+    
+    .card:hover h3 {
+      color: var(--secondary);
     }
     
     iframe {
@@ -125,6 +184,11 @@
       height: 200px;
       border: none;
       border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    iframe:hover {
+      transform: scale(1.02);
     }
     
     .testimonial {
@@ -133,6 +197,13 @@
       border-radius: 8px;
       margin: 20px 0;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     }
     
     .testimonial-author {
@@ -151,12 +222,36 @@
       font-weight: bold;
       margin-top: 10px;
       transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
     }
     
     .btn:hover {
       background: var(--primary);
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      border-color: var(--accent);
+    }
+    
+    .btn:active {
+      transform: translateY(1px);
+    }
+    
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .btn:hover::after {
+      left: 100%;
     }
     
     .contact-form {
@@ -181,6 +276,15 @@
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 5px rgba(0,100,0,0.3);
+      outline: none;
     }
     
     footer {
@@ -199,11 +303,38 @@
       font-size: 24px;
       margin: 0 10px;
       transition: all 0.3s ease;
+      display: inline-block;
     }
     
     .social-links a:hover {
       color: var(--accent);
-      transform: translateY(-3px);
+      transform: translateY(-5px) scale(1.2);
+    }
+    
+    /* Animation for sections when scrolling */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.1);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
     }
     
     @media (max-width: 768px) {
@@ -220,16 +351,53 @@
       h2 {
         font-size: 24px;
       }
+      
+      .hero {
+        height: 60vh;
+      }
+      
+      .hero-content {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">TK</div>
-    <h1>Tujijenge Kenya</h1>
-    <p>Empowering Youth through Free Skills, Mental Health & Civic Awareness</p>
-  </header>
+  <!-- Hero Section with Rotating Images -->
+  <div class="hero">
+    <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+      <div class="hero-content">
+        <div class="logo">TK</div>
+        <h1 class="animate__animated animate__fadeIn">Tujijenge Kenya</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">Empowering Youth through Free Skills, Mental Health & Civic Awareness</p>
+      </div>
+    </div>
+    
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+      <div class="hero-content">
+        <div class="logo">TK</div>
+        <h1>Learn Marketable Skills</h1>
+        <p>Free training in technical and vocational skills for all Kenyan youth</p>
+      </div>
+    </div>
+    
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+      <div class="hero-content">
+        <div class="logo">TK</div>
+        <h1>Mental Health Support</h1>
+        <p>You're not alone - we provide counseling and peer support groups</p>
+      </div>
+    </div>
+    
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');">
+      <div class="hero-content">
+        <div class="logo">TK</div>
+        <h1>Know Your Rights</h1>
+        <p>Understand your constitutional rights and civic responsibilities</p>
+      </div>
+    </div>
+  </div>
 
   <nav>
     <a href="#skills"><i class="fas fa-graduation-cap"></i> Skills</a>
@@ -291,48 +459,38 @@
       </div>
 
     <!-- Card 5: Hair Dressing -->
-<div class="card" style="background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-  <div class="card-img" style="height: 180px; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1522336572468-97b06e8ef143?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
-  <div class="card-content" style="padding: 15px;">
+<div class="card">
+  <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522336572468-97b06e8ef143?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+  <div class="card-content">
     <h3>Hair Dressing</h3>
     <p>Learn how to braid, trim, and style hair professionally.</p>
     <iframe src="https://www.youtube.com/embed/-9_aGpT7CZ4"
-            title="Hair Dressing Tutorial"
-            style="width: 100%; height: 200px; border: none; margin-top: 10px;">
+            title="Hair Dressing Tutorial">
     </iframe>
     <a href="https://youtu.be/-9_aGpT7CZ4" target="_blank"
-       class="btn"
-       style="display: inline-block; margin-top: 10px; padding: 8px 15px; background: #228B22; color: white; text-decoration: none; border-radius: 5px;">
+       class="btn">
       Start Learning
     </a>
   </div>
 </div>
 
-
-
    <!-- Card: Cooking & Chef Work -->
-<div class="card" style="background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-  <div class="card-img" style="height: 180px; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1605478371152-fc17c89d0cbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
-  <div class="card-content" style="padding: 15px;">
+<div class="card">
+  <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1605478371152-fc17c89d0cbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+  <div class="card-content">
     <h3>Cooking & Chef Skills</h3>
     <p>Master the basics of cooking, kitchen safety, and professional chef techniques.</p>
-    
     <iframe 
       src="https://www.youtube.com/embed/YrHpeEwk_-U" 
       title="Chef Tutorial"
-      style="width: 100%; height: 200px; border: none; margin-top: 10px;"
       allowfullscreen>
     </iframe>
-    
     <a href="https://youtu.be/YrHpeEwk_-U" target="_blank"
-       class="btn"
-       style="display: inline-block; margin-top: 10px; padding: 8px 15px; background: #228B22; color: white; text-decoration: none; border-radius: 5px;">
+       class="btn">
       Start Learning
     </a>
   </div>
 </div>
-
-
 
       <!-- Card 7: Welding -->
       <div class="card">
@@ -346,18 +504,16 @@
       </div>
 
       <!-- Card: Motorbike Repair -->
-<div class="card" style="background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-  <div class="card-img" style="height: 180px; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1605727216805-6183d05d4f4b?auto=format&fit=crop&w=600&q=80');"></div>
-  <div class="card-content" style="padding: 15px;">
+<div class="card">
+  <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1605727216805-6183d05d4f4b?auto=format&fit=crop&w=600&q=80');"></div>
+  <div class="card-content">
     <h3>Motorbike Repair</h3>
     <p>Master essential motorbike maintenance and repair techniques.</p>
     <iframe src="https://www.youtube.com/embed/-BAPxyksLjs"
-            title="Motorbike Repair Tutorial"
-            style="width: 100%; height: 200px; border: none; margin-top: 10px;">
+            title="Motorbike Repair Tutorial">
     </iframe>
     <a href="https://youtu.be/-BAPxyksLjs" target="_blank"
-       class="btn"
-       style="display: inline-block; margin-top: 10px; padding: 8px 15px; background: #228B22; color: white; text-decoration: none; border-radius: 5px;">
+       class="btn">
       Start Learning
     </a>
   </div>
@@ -476,7 +632,7 @@
     </div>
     
     <div style="text-align: center; margin-top: 30px;">
-      <a href="#" class="btn">Share Your Story</a>
+      <a href="#" class="btn animate__animated animate__pulse animate__infinite animate__slower">Share Your Story</a>
     </div>
   </section>
 
@@ -604,5 +760,59 @@
     </p>
   </footer>
 
+  <script>
+    // Rotating Hero Images
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+    
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+    
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
+    
+    // Scroll animation for sections
+    function checkVisibility() {
+      const sections = document.querySelectorAll('section');
+      
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (sectionTop < windowHeight * 0.75) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    
+    // Initial check
+    window.addEventListener('load', checkVisibility);
+    // Check on scroll
+    window.addEventListener('scroll', checkVisibility);
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 20,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
